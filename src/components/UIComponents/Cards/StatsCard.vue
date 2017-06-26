@@ -20,8 +20,7 @@
 <script>
   export default {
     name: 'stats-card'
-  }
-
+  };
 </script>
 <style>
   

@@ -37,42 +37,42 @@
       }
     },
     data () {
-      return {}
+      return {};
     },
     computed: {
       hasIcon () {
-        return this.icon && this.icon.length > 0
+        return this.icon && this.icon.length > 0;
       },
       alertType () {
-        return `alert-${this.type}`
+        return `alert-${this.type}`;
       },
       customPosition () {
-        let initialMargin = 20
-        let alertHeight = 90
-        let sameAlertsCount = this.$notifications.state.filter((alert) => {
-          return alert.horizontalAlign === this.horizontalAlign && alert.verticalAlign === this.verticalAlign
-        }).length
-        let pixels = (sameAlertsCount - 1) * alertHeight + initialMargin
-        let styles = {}
+        const initialMargin = 20;
+        const alertHeight = 90;
+        const sameAlertsCount = this.$notifications.state.filter((alert) => {
+          return alert.horizontalAlign === this.horizontalAlign && alert.verticalAlign === this.verticalAlign;
+        }).length;
+        const pixels = (sameAlertsCount - 1) * alertHeight + initialMargin;
+        const styles = {};
         if (this.verticalAlign === 'top') {
-          styles.top = `${pixels}px`
+          styles.top = `${pixels}px`;
         } else {
-          styles.bottom = `${pixels}px`
+          styles.bottom = `${pixels}px`;
         }
-        return styles
+        return styles;
       }
     },
     methods: {
       close () {
-        this.$emit('on-close')
+        this.$emit('on-close');
       }
     },
     mounted () {
       if (this.timeout) {
-        setTimeout(this.close, this.timeout)
+        setTimeout(this.close, this.timeout);
       }
     }
-  }
+  };
 
 </script>
 <style lang="scss" scoped>

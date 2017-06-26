@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-  import Notification from './Notification.vue'
+  import Notification from './Notification.vue';
   export default {
     components: {
       Notification
@@ -17,14 +17,14 @@
     data () {
       return {
         notifications: this.$notifications.state
-      }
+      };
     },
     methods: {
       removeNotification (index) {
-        this.$notifications.removeNotification(index)
+        this.$notifications.removeNotification(index);
       }
     }
-  }
+  };
 
 </script>
 <style lang="scss">

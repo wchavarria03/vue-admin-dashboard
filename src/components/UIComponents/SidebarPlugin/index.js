@@ -1,4 +1,4 @@
-import Sidebar from './SideBar.vue'
+import Sidebar from './SideBar.vue';
 
 const SidebarStore = {
   showSidebar: false,
@@ -40,9 +40,9 @@ const SidebarStore = {
     }
   ],
   displaySidebar (value) {
-    this.showSidebar = value
+    this.showSidebar = value;
   }
-}
+};
 
 const SidebarPlugin = {
 
@@ -51,17 +51,17 @@ const SidebarPlugin = {
       data () {
         return {
           sidebarStore: SidebarStore
-        }
+        };
       }
-    })
+    });
 
     Object.defineProperty(Vue.prototype, '$sidebar', {
       get () {
-        return this.$root.sidebarStore
+        return this.$root.sidebarStore;
       }
-    })
-    Vue.component('side-bar', Sidebar)
+    });
+    Vue.component('side-bar', Sidebar);
   }
-}
+};
 
-export default SidebarPlugin
+export default SidebarPlugin;

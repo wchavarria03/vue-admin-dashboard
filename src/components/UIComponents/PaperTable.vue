@@ -41,18 +41,18 @@
     },
     computed: {
       tableClass () {
-        return `table-${this.type}`
+        return `table-${this.type}`;
       }
     },
     methods: {
       hasValue (item, column) {
-        return item[column.toLowerCase()] !== 'undefined'
+        return item[column.toLowerCase()] !== 'undefined';
       },
       itemValue (item, column) {
-        return item[column.toLowerCase()]
+        return item[column.toLowerCase()];
       }
     }
-  }
+  };
 
 </script>
 <style>

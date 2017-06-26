@@ -50,21 +50,21 @@
             subTitle: 'Spent'
           }
         ]
-      }
+      };
     },
     methods: {
       getClasses (index) {
-        var remainder = index % 3
+        const remainder = index % 3;
         if (remainder === 0) {
-          return 'col-md-3 col-md-offset-1'
+          return 'col-md-3 col-md-offset-1';
         } else if (remainder === 2) {
-          return 'col-md-4'
+          return 'col-md-4';
         } else {
-          return 'col-md-3'
+          return 'col-md-3';
         }
       }
     }
-  }
+  };
 
 </script>
 <style>

@@ -20,7 +20,7 @@
       placeholder: String,
       value: [String, Number]
     }
-  }
+  };
 
 </script>
 <style>

@@ -42,7 +42,7 @@
       chartOptions: {
         type: Object,
         default: () => {
-          return {}
+          return {};
         }
       },
       chartData: {
@@ -51,40 +51,40 @@
           return {
             labels: [],
             series: []
-          }
+          };
         }
       }
     },
     data () {
       return {
         chartId: 'no-id'
-      }
+      };
     },
     methods: {
       /***
        * Initializes the chart by merging the chart options sent via props and the default chart options
        */
       initChart () {
-        var chartIdQuery = `#${this.chartId}`
-        this.$Chartist[this.chartType](chartIdQuery, this.chartData, this.chartOptions)
+        const chartIdQuery = `#${this.chartId}`;
+        this.$Chartist[this.chartType](chartIdQuery, this.chartData, this.chartOptions);
       },
       /***
        * Assigns a random id to the chart
        */
       updateChartId () {
-        var currentTime = new Date().getTime().toString()
-        var randomInt = this.getRandomInt(0, currentTime)
-        this.chartId = `div_${randomInt}`
+        const currentTime = new Date().getTime().toString();
+        const randomInt = this.getRandomInt(0, currentTime);
+        this.chartId = `div_${randomInt}`;
       },
       getRandomInt (min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min
+        return Math.floor(Math.random() * (max - min + 1)) + min;
       }
     },
     mounted () {
-      this.updateChartId()
-      this.$nextTick(this.initChart)
+      this.updateChartId();
+      this.$nextTick(this.initChart);
     }
-  }
+  };
 
 </script>
 <style>

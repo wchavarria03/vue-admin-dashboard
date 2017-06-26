@@ -21,9 +21,9 @@
 
 </style>
 <script>
-  import TopNavbar from './TopNavbar.vue'
-  import ContentFooter from './ContentFooter.vue'
-  import DashboardContent from './Content.vue'
+  import TopNavbar from './TopNavbar.vue';
+  import ContentFooter from './ContentFooter.vue';
+  import DashboardContent from './Content.vue';
   export default {
     components: {
       TopNavbar,
@@ -33,10 +33,10 @@
     methods: {
       toggleSidebar () {
         if (this.$sidebar.showSidebar) {
-          this.$sidebar.displaySidebar(false)
+          this.$sidebar.displaySidebar(false);
         }
       }
     }
-  }
+  };
 
 </script>

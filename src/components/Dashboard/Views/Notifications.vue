@@ -90,7 +90,7 @@
   </div>
 </template>
 <script>
-  import PaperNotification from 'src/components/UIComponents/NotificationPlugin/Notification.vue'
+  import PaperNotification from 'src/components/UIComponents/NotificationPlugin/Notification.vue';
   export default {
     data () {
       return {
@@ -98,14 +98,14 @@
         notifications: {
           topCenter: false
         }
-      }
+      };
     },
     components: {
       PaperNotification
     },
     methods: {
       notifyVue (verticalAlign, horizontalAlign) {
-        var color = Math.floor((Math.random() * 4) + 1)
+        const color = Math.floor((Math.random() * 4) + 1);
         this.$notifications.notify(
           {
             message: 'Welcome to <b>Paper Dashboard</b> - a beautiful freebie for every web developer.',
@@ -113,10 +113,10 @@
             horizontalAlign: horizontalAlign,
             verticalAlign: verticalAlign,
             type: this.type[color]
-          })
+          });
       }
     }
-  }
+  };
 
 </script>
 <style>

@@ -11,8 +11,8 @@
 <script>
   export default {
     mounted () {
-      var myLatlng = new window.google.maps.LatLng(40.748817, -73.985428)
-      var mapOptions = {
+      const myLatlng = new window.google.maps.LatLng(40.748817, -73.985428);
+      const mapOptions = {
         zoom: 13,
         center: myLatlng,
         scrollwheel: false, // we disable de scroll over the map, it is a really annoing when you scroll through page
@@ -55,18 +55,18 @@
           'stylers': [{ 'visibility': 'simplified' }]
         }]
 
-      }
-      var map = new window.google.maps.Map(document.getElementById('map'), mapOptions)
+      };
+      const map = new window.google.maps.Map(document.getElementById('map'), mapOptions);
 
-      var marker = new window.google.maps.Marker({
+      const marker = new window.google.maps.Marker({
         position: myLatlng,
         title: 'Hello World!'
-      })
+      });
 
       // To add the marker to the map, call setMap();
-      marker.setMap(map)
+      marker.setMap(map);
     }
-  }
+  };
 
 </script>
 <style>

@@ -118,14 +118,14 @@
           postalCode: '',
           aboutMe: `Oh so, your weak rhyme. You doubt I'll bother, reading into it.I'll probably won't, left to my own devicesBut that's the difference in our opinions.`
         }
-      }
+      };
     },
     methods: {
       updateProfile () {
-        alert('Your data: ' + JSON.stringify(this.user))
+        alert('Your data: ' + JSON.stringify(this.user));
       }
     }
-  }
+  };
 
 </script>
 <style>

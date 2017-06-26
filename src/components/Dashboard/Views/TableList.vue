@@ -19,8 +19,8 @@
     </div>
 </template>
 <script>
-  import PaperTable from 'components/UIComponents/PaperTable.vue'
-  const tableColumns = ['Id', 'Name', 'Salary', 'Country', 'City']
+  import PaperTable from 'components/UIComponents/PaperTable.vue';
+  const tableColumns = ['Id', 'Name', 'Salary', 'Country', 'City'];
   const tableData = [{
     id: 1,
     name: 'Dakota Rice',
@@ -55,7 +55,7 @@
     salary: '$63,542',
     country: 'Malawi',
     city: 'Feldkirchen in Kärnten'
-  }]
+  }];
 
   export default {
     components: {
@@ -75,9 +75,9 @@
           columns: [...tableColumns],
           data: [...tableData]
         }
-      }
+      };
     }
-  }
+  };
 
 </script>
 <style>

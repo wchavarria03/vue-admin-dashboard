@@ -18,10 +18,10 @@
       arrowStyle () {
         return {
           transform: `translate3d(0px, ${this.moveY}px, 0px)`
-        }
+        };
       }
     }
-  }
+  };
 
 </script>
 <style lang="scss">

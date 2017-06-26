@@ -12,12 +12,14 @@
         "sourceType": "module"
     },
     "rules": {
+        "comma-dangle": [2, "never"],
         "no-const-assign": "warn",
         "no-this-before-super": "warn",
         "no-undef": "warn",
         "no-unreachable": "warn",
         "no-unused-vars": "warn",
         "constructor-super": "warn",
+        "semi": ["error", "always"],
         "valid-typeof": "warn"
     },
     // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style

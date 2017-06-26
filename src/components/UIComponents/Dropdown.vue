@@ -22,15 +22,15 @@
     data () {
       return {
         isOpen: false
-      }
+      };
     },
     methods: {
       toggleDropDown () {
-        this.isOpen = !this.isOpen
+        this.isOpen = !this.isOpen;
       },
       closeDropDown () {
-        this.isOpen = false
+        this.isOpen = false;
       }
     }
-  }
+  };
 </script>
