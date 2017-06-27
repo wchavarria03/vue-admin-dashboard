@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Overview from 'src/components/Dashboard/Views/Overview.vue'
+import Overview from 'src/components/App/Views/Overview.vue'
 import Chartist from 'chartist'
 
 function getRenderedComponent (Component, propsData) {
