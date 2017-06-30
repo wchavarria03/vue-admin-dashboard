@@ -2,24 +2,24 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <paper-table :title="table1.title" :sub-title="table1.subTitle" :data="table1.data" :columns="table1.columns">
+          <noh-table :title="table1.title" :sub-title="table1.subTitle" :data="table1.data" :columns="table1.columns">
 
-          </paper-table>
+          </noh-table>
         </div>
       </div>
 
       <div class="col-md-12">
         <div class="card card-plain">
-          <paper-table type="hover" :title="table2.title" :sub-title="table2.subTitle" :data="table2.data" :columns="table2.columns">
+          <noh-table type="hover" :title="table2.title" :sub-title="table2.subTitle" :data="table2.data" :columns="table2.columns">
 
-          </paper-table>
+          </noh-table>
         </div>
       </div>
 
     </div>
 </template>
 <script>
-  import PaperTable from 'components/UIComponents/PaperTable.vue';
+  import NohTable from 'components/UIComponents/NohTable.vue';
   const tableColumns = ['Id', 'Name', 'Salary', 'Country', 'City'];
   const tableData = [{
     id: 1,
@@ -59,7 +59,7 @@
 
   export default {
     components: {
-      PaperTable
+      NohTable
     },
     data () {
       return {

@@ -1,10 +1,12 @@
 import AppLayout from '../components/App/Layout/AppLayout.vue';
 // GeneralViews
 import NotFound from '../components/GeneralViews/NotFoundPage.vue';
+import Login from '../components/GeneralViews/Login.vue';
 
 // Admin pages
 import Overview from 'src/components/App/Views/Overview.vue';
 import UserProfile from 'src/components/App/Views/UserProfile.vue';
+import Users from 'src/components/App/Users/Users.vue';
 import Notifications from 'src/components/App/Views/Notifications.vue';
 import Icons from 'src/components/App/Views/Icons.vue';
 import Maps from 'src/components/App/Views/Maps.vue';
@@ -12,6 +14,11 @@ import Typography from 'src/components/App/Views/Typography.vue';
 import TableList from 'src/components/App/Views/TableList.vue';
 
 const routes = [
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
   {
     path: '/',
     component: AppLayout,
@@ -31,6 +38,11 @@ const routes = [
         path: 'stats',
         name: 'stats',
         component: UserProfile
+      },
+      {
+        path: 'users',
+        name: 'users',
+        component: Users
       },
       {
         path: 'notifications',

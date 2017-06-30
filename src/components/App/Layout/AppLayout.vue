@@ -9,9 +9,9 @@
     <div class="main-panel">
       <top-navbar></top-navbar>
 
-      <dashboard-content @click.native="toggleSidebar">
+      <app-content @click.native="toggleSidebar">
 
-      </dashboard-content>
+      </app-content>
 
       <content-footer></content-footer>
     </div>
@@ -23,12 +23,12 @@
 <script>
   import TopNavbar from './TopNavbar.vue';
   import ContentFooter from './ContentFooter.vue';
-  import DashboardContent from './Content.vue';
+  import AppContent from './Content.vue';
   export default {
     components: {
       TopNavbar,
       ContentFooter,
-      DashboardContent
+      AppContent
     },
     methods: {
       toggleSidebar () {

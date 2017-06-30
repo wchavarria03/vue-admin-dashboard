@@ -1,15 +1,19 @@
+import Axios from 'axios';
 import Vue from 'vue';
+import VueAuthenticate from 'vue-authenticate';
+import VueAxios from 'vue-axios';
 import VueRouter from 'vue-router';
 import vClickOutside from 'v-click-outside';
 
 // Plugins
-import GlobalComponents from './gloablComponents';
+import GlobalComponents from './globalComponents';
 import Notifications from './components/UIComponents/NotificationPlugin';
 import SideBar from './components/UIComponents/SidebarPlugin';
 import App from './App';
 
-// router setup
+// configs
 import routes from './routes/routes';
+import authenticateConfig from './utils/vueAuthenticateConfig';
 
 // library imports
 import Chartist from 'chartist';
@@ -18,7 +22,9 @@ import './assets/sass/paper-dashboard.scss';
 import 'es6-promise/auto';
 
 // plugin setup
+Vue.use(VueAxios, Axios);
 Vue.use(VueRouter);
+Vue.use(VueAuthenticate, authenticateConfig);
 Vue.use(GlobalComponents);
 Vue.use(vClickOutside);
 Vue.use(Notifications);
