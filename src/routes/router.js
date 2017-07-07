@@ -1,3 +1,5 @@
+import Vue from 'vue';
+import VueRouter from 'vue-router';
 import AppLayout from '../components/App/Layout/AppLayout.vue';
 // GeneralViews
 import NotFound from '../components/GeneralViews/NotFoundPage.vue';
@@ -83,4 +85,11 @@ function view(name) {
    return res;
 };* */
 
-export default routes;
+const vueRouterInstance = new VueRouter({
+  routes, // short for routes: routes
+  linkActiveClass: 'active'
+});
+
+Vue.use(VueRouter);
+
+export default vueRouterInstance;
