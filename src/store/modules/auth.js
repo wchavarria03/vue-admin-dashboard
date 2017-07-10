@@ -1,9 +1,12 @@
 import api from '../api';
 import * as types from '../mutation-types';
+import vueAuthInstance from '../../services/auth.js';
 
 const URI = 'signin';
 const state = {
-  isLoggedIn: !!localStorage.getItem('token')
+  isAuthenticated: vueAuthInstance.isAuthenticated(),
+  isLoggedIn: !!localStorage.getItem('token'),
+  profile: null
 };
 
 const getters = {
@@ -11,34 +14,66 @@ const getters = {
 };
 
 const mutations = {
-  [types.LOGIN](context) {
-    context.pending = true;
+  [types.ISAUTHENTICATED] (state, payload) {
+    state.isAuthenticated = payload.isAuthenticated;
   },
-  [types.LOGIN_SUCCESS](context) {
-    context.isLoggedIn = true;
-    context.pending = false;
+  [types.SETPROFILE] (state, payload) {
+    state.profile = payload.profile;
   },
-  [types.LOGOUT](context) {
-    context.isLoggedIn = false;
+  [types.LOGIN] (state) {
+    state.pending = true;
+  },
+  [types.LOGIN_SUCCESS] (state) {
+    state.isLoggedIn = true;
+    state.pending = false;
+  },
+  [types.LOGOUT] (state) {
+    state.isLoggedIn = false;
   }
 };
 
 const actions = {
-  [types.LOGIN]({ commit }, creds) {
-    commit(types.LOGIN);
+  [types.LOGIN] (context, payload) {
+    payload = payload || {};
+    return vueAuthInstance.login(payload)
+      .then(() => {
+        context.commit('isAuthenticated', {
+          isAuthenticated: vueAuthInstance.isAuthenticated()
+        });
+      });
+    /* commit(types.LOGIN);
     return api.login(state, URI, (data) => {
       localStorage.setItem('token', data.token);
       localStorage.setItem('userId', data.userId);
       // localStorage.setItem('permissions', data.token);
       commit(types.LOGIN_SUCCESS);
       commit(types.FETCH_TEACHERS, data);
-    }, creds);
+    }, payload);
+    */
   },
-  [types.LOGOUT]({ commit }) {
+  [types.LOGOUT] (context, payload) {
+    payload = payload || {};
+    return vueAuthInstance.logout(payload.requestOptions)
+      .then(() => {
+        context.commit('isAuthenticated', {
+          isAuthenticated: vueAuthInstance.isAuthenticated()
+        });
+      });
+    /*
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     // localStorage.removeItem('permissions');
     commit(types.LOGOUT);
+    */
+  },
+  [types.AUTHENTICATE] (context, payload) {
+    payload = payload || {};
+    return vueAuthInstance.authenticate(payload.provider, payload.userData, payload.requestOptions)
+      .then(function () {
+        context.commit('isAuthenticated', {
+          isAuthenticated: vueAuthInstance.isAuthenticated()
+        });
+      });
   }
 };
 

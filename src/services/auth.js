@@ -1,11 +1,11 @@
+import Axios from 'axios';
 import Vue from 'vue';
+import VueAxios from 'vue-axios';
 import { VueAuthenticate } from 'vue-authenticate';
 import authenticateConfig from '../utils/vueAuthenticateConfig';
 
-const vueAuthInstance = new VueAuthenticate(Vue.prototype.$http, {
-  baseUrl: 'http://localhost:3000'
-});
+Vue.use(VueAxios, Axios);
 
-Vue.use(VueAuthenticate, authenticateConfig);
+const vueAuthInstance = new VueAuthenticate(Vue.prototype.$http, authenticateConfig);
 
 export default vueAuthInstance;

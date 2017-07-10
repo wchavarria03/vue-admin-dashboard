@@ -11,13 +11,13 @@ const getters = {
 };
 
 const mutations = {
-  [types.FETCH_TEACHERS](context, list) {
+  [types.FETCH_TEACHERS] (context, list) {
     context.teachers = list;
   }
 };
 
 const actions = {
-  [types.FETCH_TEACHERS]({ commit }) {
+  [types.FETCH_TEACHERS] ({commit}) {
     api.getTeachers(state, URI, (data) => {
       commit(types.FETCH_TEACHERS, data);
     });

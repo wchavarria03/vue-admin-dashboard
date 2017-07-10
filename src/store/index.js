@@ -3,6 +3,8 @@ import Vuex from 'vuex';
 import getters from './getters';
 import actions from './actions';
 import mutations from './mutations';
+
+/* Modules */
 import auth from './modules/auth';
 import inventories from './modules/inventories';
 import teachers from './modules/teachers';

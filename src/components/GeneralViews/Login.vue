@@ -22,36 +22,16 @@
       };
     },
     methods: {
-      /* Remove this login2 when the ovue-authenticate is working well */
-      login2 () {
+      login () {
         this.$store.dispatch('LOGIN', {
           username: this.username,
           password: this.password
         }).then(() => {
           this.$router.push({ name: 'profile' });
         })
-          .catch((error) => {
-            console.log(error);
-          });
-      },
-      login: function () {
-        this.$http.get('https://jsonplaceholder.typicode.com/users')
-          .then(function (users) {
-            console.log(users);
-          });
-      },
-      login3: function () {
-        const credentials = {
-          username: this.username,
-          password: this.password
-        };
-        this.$auth.login(credentials)
-          .then(function () {
-            this.$router.push({ name: 'profile' });
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        .catch((error) => {
+          console.log(error);
+        });
       }
     }
   };

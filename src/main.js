@@ -1,8 +1,5 @@
-import Axios from 'axios';
 import vClickOutside from 'v-click-outside';
 import Vue from 'vue';
-import VueAxios from 'vue-axios';
-import Vuex from 'vuex';
 
 // Plugins
 import App from './App';
@@ -12,6 +9,7 @@ import SideBar from './components/UIComponents/SidebarPlugin';
 
 // configs
 import router from './routes/router';
+import store from './store';
 
 // library imports
 import Chartist from 'chartist';
@@ -20,9 +18,6 @@ import './assets/sass/paper-dashboard.scss';
 import 'es6-promise/auto';
 
 // plugin setup
-Vue.use(Vuex);
-Vue.use(VueAxios, Axios);
-
 Vue.use(GlobalComponents);
 Vue.use(vClickOutside);
 Vue.use(Notifications);
@@ -40,6 +35,7 @@ new Vue({
   el: '#app',
   render: h => h(App),
   router,
+  store,
   data: {
     Chartist: Chartist
   }

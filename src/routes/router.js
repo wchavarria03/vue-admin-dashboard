@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import AppLayout from '../components/App/Layout/AppLayout.vue';
+import vueAuthInstance from '../services/auth.js';
+
 // GeneralViews
 import NotFound from '../components/GeneralViews/NotFoundPage.vue';
 import Login from '../components/GeneralViews/Login.vue';
@@ -15,11 +17,14 @@ import Maps from 'src/components/App/Views/Maps.vue';
 import Typography from 'src/components/App/Views/Typography.vue';
 import TableList from 'src/components/App/Views/TableList.vue';
 
+Vue.use(VueRouter);
+
 const routes = [
   {
     path: '/login',
     name: 'login',
-    component: Login
+    component: Login,
+    meta: { auth: false, title: 'Login to existing account' }
   },
   {
     path: '/',
@@ -90,6 +95,24 @@ const vueRouterInstance = new VueRouter({
   linkActiveClass: 'active'
 });
 
-Vue.use(VueRouter);
+vueRouterInstance.beforeEach(function (to, from, next) {
+  if (to.meta && to.meta.auth !== undefined) {
+    if (to.meta.auth) {
+      if (vueAuthInstance.isAuthenticated()) {
+        next();
+      } else {
+        vueRouterInstance.push({ name: 'login' });
+      }
+    } else {
+      if (vueAuthInstance.isAuthenticated()) {
+        vueRouterInstance.push({ name: 'overview' });
+      } else {
+        next();
+      }
+    }
+  } else {
+    next();
+  }
+});
 
 export default vueRouterInstance;
